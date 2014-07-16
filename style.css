@@ -1,0 +1,16 @@
+#chart_div {
+    float: left;
+}
+#legend {
+    margin: 30px 0 0 0;
+    float: left;
+    list-style: none;
+
+}
+div.legendMarker {
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    margin: 0 5px 0 0;
+
+}​

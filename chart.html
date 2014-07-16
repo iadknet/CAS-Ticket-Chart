@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css"></link>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+       var JSONObject = (function () {
+    var json = null;
+    $.ajax({
+        'async': false,
+        'global': false,
+        'url': 'cas_logs.json',
+        'dataType': "json",
+        'success': function (data) {
+            json = data;
+        }
+    });
+    return json;
+})(); 
+
+       //alert(JSONObject);
+  var data = new google.visualization.DataTable(JSONObject);
+
+  var view = new google.visualization.DataView(data);
+
+
+      var legend = document.getElementById('legend');
+      var lis = [];
+          var colors = ["#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499", "#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499","#3366cc","#dc3912","#ff9900","#109618","#990099","#0099c6","#dd4477","#aaaa11","#22aa99","#994499"];
+
+       for(var i = 1; i < data.getNumberOfColumns(); i++)
+       {
+
+        var label = data.getColumnLabel(i);
+        var range = data.getColumnRange(i);
+        lis[i] = document.createElement('li');
+        lis[i].id = 'legend_' + i;
+
+        var color_counter = i - 1;
+
+        //lis[i].innerHTML = '<div class="legendMarker" style="background-color:' + colors[i] + ';"></div>' + label + ': ' + value + ' (' + '%)</span>';
+        lis[i].title = i;
+        lis[i].innerHTML = '<div class="legendMarker" style="background-color:' + colors[color_counter] + '"></div><span>' + label + '</span>';
+      //   // append to the legend list
+         legend.appendChild(lis[i]);
+       }
+
+        var options = {
+          title: 'CAS Tickets Granted Per Day',
+          legend: {position: 'none' },
+          chartArea:{left:75,top:50,width:"100%"}
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        var view_columns = view.getViewColumns();
+
+        //view.setColumns([1,3,4,5,6])
+        chart.draw(view, options);
+
+        $('#apply_filter').click(function () { apply_filter(); });
+
+
+        $("#filter").keyup(function(e){ 
+    var code = e.which; // recommended to use e.which, it's normalized across browsers
+    if(code==13)e.preventDefault();
+    if(code==32||code==13||code==188||code==186){
+        $('#apply_filter').trigger('click');
+    } // missing closing if brace
+});
+function apply_filter () {
+
+          view.setColumns(view_columns);
+          var value = $('#filter').val();
+          var color_counter = 0;
+
+          
+
+          $('#legend > li').each(function () {
+            var legend_index = $(this).attr('title');
+
+            if($(this).text().search(value) > -1)
+            {
+              $(this).show();
+              $(".legendMarker", this).css('background-color', colors[color_counter]);
+              color_counter++;
+         
+            }
+            else
+            {
+              $(this).hide();
+              view.hideColumns([parseInt(legend_index)]);
+            }
+            //counter++;
+          });
+          //alert(view.getViewColumns());
+
+          chart.draw(view, options);
+
+        }
+        
+
+
+
+
+      }
+
+
+
+  
+
+
+
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 700px; height: 600px;"></div>
+    <div id="hide_button" width="100px" height="100px" background="red"></div>
+    <ul id="legend">
+      <input id="filter" type="text"/><button type="button" id="apply_filter">Apply Filter</button>
+    </ul>
+  </body>
+</html>
